@@ -9,29 +9,27 @@ package p003;
 */
 public class Main {
     public static void main(String[] args) {
-        long i = 1;
-        int count = 0;
-        long found = 0;
-        while(count != 10001){
-            for (int j = 2; j <= i; j++) {
-                if( i-1 == j){
-                    count++;
-                    if(count == 10001)
-                        found = i;
-                    break;
+        long var =600851475143L;
+        int max = 1;
+        for (int i = 2; i < var; i++) {
+            if(isPrime(i)){
+                if(var % i == 0){
+                    var = var/max;
+                    max = i;
                 }
-
-                if(i%j==0)
-                    break;
             }
-
-
-
-            i++;
-
         }
-
-        System.out.println(found);
-
+        System.out.println(max);
+    }
+    static boolean isPrime(int val){
+        if(val == 2)
+            return true;
+        if(val % 2 == 0)
+            return false;
+        for (int i = 3; i*i <= val ; i++) {
+            if(val%i == 0)
+                return false;
+        }
+        return true;
     }
 }
