@@ -11,11 +11,12 @@ public class Main {
     public static void main(String[] args) {
         long var =600851475143L;
         int max = 1;
-        for (int i = 2; i < var; i++) {
+        for (int i = 2; i <= var; i++) {
             if(isPrime(i)){
                 if(var % i == 0){
-                    var = var/max;
                     max = i;
+                    var = var/max;
+
                 }
             }
         }
